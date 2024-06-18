@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="insert">
+        insert into employee (
+        empId,
+        empName,
+        empNo,
+        email,
+        phone,
+        deptCode,
+        jobCode,
+        salLevel,
+        salary,
+        bonus,
+        managerId,
+        hireDate,
+        entDate,
+        entYN
+        )
+        values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    </entry>
+
+    <entry key="update">
+        update employee
+        set menu_name = ?,
+        menu_price = ?
+        where menu_code = ?
+    </entry>
+
+    <entry key="delete">
+        delete
+        from employee
+        where menu_code = ?
+    </entry>
+</properties>
