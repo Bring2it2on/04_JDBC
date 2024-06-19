@@ -78,20 +78,34 @@ public class Insert {
             String managerId = sc.next();
 
             System.out.print("고용일은 현재 날짜를 반영합니다...");
-            Date hireDate = new Date();
-
-            System.out.print("퇴사일을 입력하세요 (yyyyMMdd) : ");
-            String getstr = sc.next();
-            DateFormat df = new SimpleDateFormat("yyyyMMdd");
-            Date entDate = null;
-            try {
-                entDate = df.parse(getstr);
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
+            Date date = new Date();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            java.sql.Date hireDate = java.sql.Date.valueOf(simpleDateFormat.format(date));
 
             System.out.print("퇴사여부(Y/N) : ");
             String entYN = sc.next().toUpperCase();
+
+            java.sql.Date entDate = null;
+            if(entYN.equals("Y")) {
+
+                System.out.print("퇴사일을 입력하세요 (yyyyMMdd) : ");
+                String getstr = sc.next();
+                SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+                Date tempDate = null;
+                try {
+                    // 현재 yyyymmdd로된 날짜 형식으로 java.util.Date 객체를 만든다.
+                    tempDate = df.parse(getstr);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+                // java.util.Date를 yyyy-mm-dd 형식으로 변경하여 String으로 변환
+                String transDate = simpleDateFormat.format(tempDate);
+
+                // 반환된 String 값을 java.sql.Date로 변경한다.
+                entDate = java.sql.Date.valueOf(transDate);
+
+            }
+
 
 
             EmployeeDTO newEmployee = new EmployeeDTO();
@@ -148,4 +162,6 @@ public class Insert {
             System.out.println("메뉴 저장 실패...");
         }
     }
+
+
 }

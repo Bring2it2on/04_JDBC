@@ -3,20 +3,20 @@
 <properties>
     <entry key="insert">
         insert into employee (
-        empId,
-        empName,
-        empNo,
+        emp_Id,
+        emp_Name,
+        emp_No,
         email,
         phone,
-        deptCode,
-        jobCode,
-        salLevel,
+        dept_Code,
+        job_Code,
+        sal_Level,
         salary,
         bonus,
-        managerId,
-        hireDate,
-        entDate,
-        entYN
+        manager_Id,
+        hire_Date,
+        ent_Date,
+        ent_YN
         )
         values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     </entry>

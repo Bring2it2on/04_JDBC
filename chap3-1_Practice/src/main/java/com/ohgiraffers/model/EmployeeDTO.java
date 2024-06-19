@@ -14,14 +14,14 @@ public class EmployeeDTO {
     private int salary;
     private float bonus;
     private String managerId;
-    private Date hireDate;
-    private Date entDate;
+    private java.sql.Date hireDate;
+    private java.sql.Date entDate;
     private String entYN;
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(int empId, String empName, String empNo, String email, String phone, String deptCode, String jobCode, String salLevel, int salary, float bonus, String managerId, Date hireDate, Date entDate, String entYN) {
+    public EmployeeDTO(int empId, String empName, String empNo, String email, String phone, String deptCode, String jobCode, String salLevel, int salary, float bonus, String managerId, java.sql.Date hireDate, java.sql.Date entDate, String entYN) {
         this.empId = empId;
         this.empName = empName;
         this.empNo = empNo;
@@ -127,18 +127,18 @@ public class EmployeeDTO {
     }
 
     public java.sql.Date getHireDate() {
-        return (java.sql.Date) hireDate;
+        return hireDate;
     }
 
-    public void setHireDate(Date hireDate) {
+    public void setHireDate(java.sql.Date hireDate) {
         this.hireDate = hireDate;
     }
 
     public java.sql.Date getEntDate() {
-        return (java.sql.Date) entDate;
+        return entDate;
     }
 
-    public void setEntDate(Date entDate) {
+    public void setEntDate(java.sql.Date entDate) {
         this.entDate = entDate;
     }
 
